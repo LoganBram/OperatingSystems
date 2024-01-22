@@ -34,6 +34,7 @@ def main(n = None):
     # Create a child process
     pid = os.fork()
     print("pid=", pid)
+    
 
     # If the fork failed
     if pid < 0:
@@ -42,14 +43,17 @@ def main(n = None):
 
     if pid != 0:  # Parent process
         Total += A(x)
+        _, status = os.wait() #throwaway pid
+        child_result = status >> 8
+        Total += child_result
     else:  # Child process
-        Total += B(x)
-        os._exit(0)  # Ensure the child process terminates here
+        result = B(x)
+        os._exit(result)  # Ensure the child process terminates here
 
     # If this is the parent process, print the total summation
     if pid != 0:
         print(f"The total is: {Total}")
 
 if __name__ == "__main__":
-    n = 1
+    n = 20
     main(n)
