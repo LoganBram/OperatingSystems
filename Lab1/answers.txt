@@ -1,8 +1,8 @@
 1.) We are not getting the correct value because it is only using value found from
 the parent process and thus only half the calculation.
 
-2.) the issue was fixed by using a wait comman in the parent process then getting the child result by shifting by 8 bits. Ie the second 8 bits are the info from the child process
+2.) The issue was fixed by using a wait command in the parent process so that the child process can run, and then getting the child processes result by right shifting by 8 bits. Ie the second 8 bits are the info from the child process.
 
-3.) any number n where n is less than or equal to 25 works. This s is because after 25 the second half of the calculation will over flow the 8 bits ie add up to a number the greater than 256 would overflow
+3.) Any number n where n is less than or equal to 25 works. This is because after 25 the second half of the calculation will over flow the 8 bits. Ie adding up to a number greater than 256 would overflow out of the 8 bits.
 
-4.) n is less than or equal to 45. This is the max value where the bottom half of the calculation doesnt exceed 256 and thus over flow the 8 bits of information from the child node.
+4.) n is less than or equal to 45. This is the max value where the bottom half of the calculation doesn't exceed 256 and thus over flow the 8 bits of information from the child node.
