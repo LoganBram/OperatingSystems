@@ -3,7 +3,11 @@
 
 
 #include "FirstComeFirstServedScheduler.h"
-
+FirstComeFirstServedScheduler::FirstComeFirstServedScheduler(const queue<Process> &pass_processes, int pass_quantum)
+{
+    processes = pass_processes;
+    quantum = pass_quantum;
+}
 void FirstComeFirstServedScheduler::schedule()
 {
     vector<Process> processesVector;

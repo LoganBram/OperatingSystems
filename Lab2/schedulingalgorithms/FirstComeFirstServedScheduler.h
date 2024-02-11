@@ -12,8 +12,8 @@ private:
     int quantum;
     queue<Process> processes; // Declare processes as a member variable
 public:
-    FirstComeFirstServedScheduler(const queue<Process> processes, int quantum) {
-    }
+    FirstComeFirstServedScheduler(const queue<Process> &pass_processes, int pass_quantum);
+
     void schedule() override;
     void calculateAverageWaitTime() override;
     void calculateAverageTurnAroundTime() override;
