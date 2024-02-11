@@ -1,0 +1,3 @@
+/Users/kai/Desktop/school/324/OperatingSystems-324/Lab2/cmake-build-debug/CMakeFiles/Lab2.dir
+/Users/kai/Desktop/school/324/OperatingSystems-324/Lab2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kai/Desktop/school/324/OperatingSystems-324/Lab2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

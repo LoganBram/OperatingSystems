@@ -1,0 +1,7 @@
+# ninja log v5
+1	150	1707678037009751679	CMakeFiles/Lab2.dir/schedulingalgorithms/CPUScheduler.cpp.o	2ba995ba1e8aee66
+1	342	1707678037200120549	CMakeFiles/Lab2.dir/schedulingalgorithms/RoundRobinScheduler.cpp.o	5e6e7c7f81701161
+1	450	1707678037309381810	CMakeFiles/Lab2.dir/main.cpp.o	815c5d96f11d21fe
+8	403	1707680381940204500	CMakeFiles/Lab2.dir/schedulingalgorithms/FirstComeFirstServedScheduler.cpp.o	ba7acc4e5c9c579e
+8	423	1707680381959941052	CMakeFiles/Lab2.dir/main.cpp.o	815c5d96f11d21fe
+423	462	1707680382001713526	Lab2	834823b51085e935
