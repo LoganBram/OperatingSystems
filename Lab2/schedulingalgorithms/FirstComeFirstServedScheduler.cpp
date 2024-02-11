@@ -7,6 +7,7 @@ void FirstComeFirstServedScheduler::schedule()
     {
         Process process = processes.front();
         processes.pop();
+
     }
 }
 
@@ -14,7 +15,8 @@ void FirstComeFirstServedScheduler::calculateAverageWaitTime()
 {
     int totalWaitTime = 0;
     int count =0;
-    for (int i = 0; i < processes.size(); i++)
+    queue<Process> copy;
+    while(!processes.empty())
     {
         Process process = processes.front();
         processes.pop();
@@ -33,7 +35,7 @@ void FirstComeFirstServedScheduler::calculateAverageTurnAroundTime()
     // Implementation of calculating average turn around time
     int totalTurnAroundTime = 0;
     int count =0;
-    for (int i = 0; i < processes.size(); i++)
+    while(!processes.empty())
     {
         Process process = processes.front();
         processes.pop();
