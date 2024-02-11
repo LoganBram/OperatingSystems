@@ -1,13 +1,23 @@
 #include <iostream>
+#include <queue> // Include the <queue> header file
+
 #include "FirstComeFirstServedScheduler.h"
 
 void FirstComeFirstServedScheduler::schedule()
 {
-    while (!processes.empty())
-    {
-        Process process = processes.front();
-        processes.pop();
+    
 
+    int wait = 0;
+    for (int i = 0; i < processes.size(); i++)
+    {
+        Process p = processes.front();
+        p.waitTime = wait - p.arrivalTime;
+        wait += p.burstTime;
+        p.remainingTime = 0;
+        processes.pop();
+        processes.push(p);
+        
+        
     }
 }
 
@@ -15,7 +25,7 @@ void FirstComeFirstServedScheduler::calculateAverageWaitTime()
 {
     int totalWaitTime = 0;
     int count =0;
-    queue<Process> copy;
+    queue<Process> copy = processes;
     while(!processes.empty())
     {
         Process process = processes.front();
@@ -26,6 +36,7 @@ void FirstComeFirstServedScheduler::calculateAverageWaitTime()
     }
     double averageWaitTime = static_cast<double>(totalWaitTime) / count;
     std::cout << "Average wait time: " << averageWaitTime << std::endl;
+    processes = copy;
     
     // Implementation of calculating average wait time
 }

@@ -9,7 +9,8 @@ using namespace std;
 class FirstComeFirstServedScheduler : public CPUScheduler
 {
 private:
-    std::queue<Process> processes; // Declare processes as a member variable
+    int quantum;
+    queue<Process> processes; // Declare processes as a member variable
 public:
     FirstComeFirstServedScheduler(queue<Process> processes, int quantum) {
     }
