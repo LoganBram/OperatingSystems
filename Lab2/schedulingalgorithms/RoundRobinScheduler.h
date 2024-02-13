@@ -8,8 +8,12 @@ using namespace std;
 
 class RoundRobinScheduler : public CPUScheduler
 {
+private:
+    int quantum;
+    queue<Process> processes; // Declare processes as a member variable
 public:
-    RoundRobinScheduler(queue<Process> processes, int quantum); //use this for consturctor
+    //FirstComeFirstServedScheduler(const queue<Process> &pass_processes, int pass_quantum);
+    RoundRobinScheduler(const queue<Process> &pass_processes, int pass_quantum); //use this for consturctor
     void schedule() override;
     void calculateAverageWaitTime() override;
     void calculateAverageTurnAroundTime() override;

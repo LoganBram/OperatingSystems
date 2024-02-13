@@ -1,4 +1,10 @@
 #include "RoundRobinScheduler.h"
+RoundRobinScheduler::RoundRobinScheduler(const queue<Process> &pass_processes, int pass_quantum) {
+    processes = pass_processes;
+    quantum = pass_quantum;
+}
+
+
 
 void RoundRobinScheduler::schedule()
 {
