@@ -58,3 +58,17 @@
 3	387	1707873491368389006	CMakeFiles/Lab2.dir/main.cpp.o	815c5d96f11d21fe
 3	409	1707873491390273511	CMakeFiles/Lab2.dir/schedulingalgorithms/FirstComeFirstServedScheduler.cpp.o	ba7acc4e5c9c579e
 410	459	1707873491442870172	Lab2	834823b51085e935
+4	370	1707873891637787417	CMakeFiles/Lab2.dir/main.cpp.o	815c5d96f11d21fe
+4	388	1707873891656960096	CMakeFiles/Lab2.dir/schedulingalgorithms/RoundRobinScheduler.cpp.o	5e6e7c7f81701161
+388	425	1707873891696370994	Lab2	834823b51085e935
+3	321	1707874021230479653	CMakeFiles/Lab2.dir/schedulingalgorithms/RoundRobinScheduler.cpp.o	5e6e7c7f81701161
+321	354	1707874021264945267	Lab2	834823b51085e935
+3	439	1707874939465205628	CMakeFiles/Lab2.dir/schedulingalgorithms/FirstComeFirstServedScheduler.cpp.o	ba7acc4e5c9c579e
+3	311	1707874956946250169	CMakeFiles/Lab2.dir/schedulingalgorithms/RoundRobinScheduler.cpp.o	5e6e7c7f81701161
+311	348	1707874956985311609	Lab2	834823b51085e935
+3	310	1707875010346129365	CMakeFiles/Lab2.dir/schedulingalgorithms/FirstComeFirstServedScheduler.cpp.o	ba7acc4e5c9c579e
+310	337	1707875010375341987	Lab2	834823b51085e935
+3	324	1707875181021169442	CMakeFiles/Lab2.dir/schedulingalgorithms/FirstComeFirstServedScheduler.cpp.o	ba7acc4e5c9c579e
+324	353	1707875181052610144	Lab2	834823b51085e935
+3	323	1707875497647573271	CMakeFiles/Lab2.dir/schedulingalgorithms/FirstComeFirstServedScheduler.cpp.o	ba7acc4e5c9c579e
+323	359	1707875497686381096	Lab2	834823b51085e935

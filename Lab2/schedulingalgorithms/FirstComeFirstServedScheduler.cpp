@@ -12,16 +12,20 @@ void FirstComeFirstServedScheduler::schedule()
 {
     vector<Process> processesVector;
 
-// Copy elements from the queue to the vector
-    for (int i = 0; i < processes.size(); i++) {
-        Process p = processes.front();
-        processesVector.push_back(p);
-        processes.push(p); // Push the same element back to the queue
-        processes.pop();  // Pop the element from the front of the queue
-    }
-    for (int i = 0; i < processes.size(); i++)
+    int originalSize = processes.size(); // Store the original size
+
+    for (int i = 0; i < originalSize; i++)
     {
-        for (int j = 0; j < processes.size() - i - 1; j++)
+        Process p = processes.front(); // Access front of the queue
+        processesVector.push_back(p);  // Push to the vector
+        processes.pop();               // Pop the front element
+    }
+
+
+    //sort by arrival time
+    for (int i = 0; i < originalSize; i++)
+    {
+        for (int j = 0; j < originalSize - i - 1; j++)
         {
             if (processesVector[j].arrivalTime > processesVector[j + 1].arrivalTime)
             {
@@ -31,6 +35,11 @@ void FirstComeFirstServedScheduler::schedule()
             }
         }
     }
+    for (int i = 0; i < originalSize; i++) {//push vector back to queue
+        Process p = processesVector[i];
+        processes.push(p);
+    }
+
     
     int wait = 0;
     
