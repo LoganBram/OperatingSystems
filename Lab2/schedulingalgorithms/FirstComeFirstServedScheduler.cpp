@@ -88,5 +88,5 @@ void FirstComeFirstServedScheduler::calculateAverageTurnAroundTime()
         count++;
     }
     double averageTurnAroundTime = static_cast<double>(totalTurnAroundTime) / count;
-    std::cout << "Average wait time: " << averageTurnAroundTime << std::endl;
+    std::cout << "Average turn around time: " << averageTurnAroundTime << std::endl;
 }
