@@ -28,9 +28,11 @@ class SharedBuffer:
 
     def add_message(self, message):
         # TODO: wait if buffer is full
+        self.notFull.acquire()
 
         with self.mutex:
             self.buffer.append(message)
+        self.notEmpty.release()
         # TODO: signal that buffer is not empty
 
     '''
@@ -40,17 +42,19 @@ class SharedBuffer:
     def read_message(self):
         message = None
         # TODO: wait if buffer is empty
+        self.notEmpty.acquire()
 
         with self.mutex:
             # TODO: if production is done and buffer is empty, return None (check the buffer length)
             if len(self.buffer) == 0:
                 # TODO: release the requried semaphore to avoid deadlock
-
+                self.notEmpty.release()
                 # Return None if production is done and buffer is empty
                 return None
 
             message = self.buffer.pop(0)
         # TODO: signal that buffer is not full
+        self.notFull.release()
 
         return message
 
@@ -61,11 +65,14 @@ class SharedBuffer:
     def mark_done_producing(self):
         with self.mutex:
             # TODO: set the flag to signal that production is done
-
+            self.doneProducing = True
             # Release semaphore to ensure all consumers can exit
             # TODO: release the semaphore for each consumer (you may need to release it multiple times)
-
-            pass  # Remove this line when you implement the method
+            
+            for i in range(len(self.buffer)):
+                self.notEmpty.release()#i think thats all 
+            
+            # Remove this line when you implement the method
 
     def check_done_producing(self):
         with self.mutex:
@@ -103,7 +110,9 @@ def consumer(thread_id):
         message = buffer.read_message()
         if message is None:
             # TODO: break the loop if production is done and buffer is empty
-            pass  # Remove this line when you implement the method
+            if len(buffer) <=0:
+                break
+             # Remove this line when you implement the method
         print(f"Consumer {thread_id} consumed: {message}")
         time.sleep(1)  # Simulate reading time
 
