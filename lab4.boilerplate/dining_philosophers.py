@@ -24,8 +24,8 @@ def philosopher(id):
         # TODO: You should protect the critical section before executing the code below
         
         with mutex: # Added with instead of acquiring and releasing after the next TODO
-            left_fork = id
-            right_fork = (id + 1) % PHILOSOPHERS_COUNT
+            left_fork, right_fork = prevent(id)
+            
             # Pick up forks
             print(f"Philosopher {id} is hungry.")
             # TODO: pick up the left fork
@@ -39,7 +39,6 @@ def philosopher(id):
 
         # TODO: You should release the lock for the critical section after executing the code above
         
-
         # Eat
         # Simulate eating time
         print(f"Philosopher {id} is eating.")
@@ -53,7 +52,25 @@ def philosopher(id):
         forks[right_fork].release()
         print(f"Philosopher {id} finished eating and put down forks.")
 
+def prevent(id):
+    '''
+    Philosophers must pick up smallest fork first.
+    This fixes deadlock because philosophers 1 and 5 can't
+    both carry a chopstick because they both try to take the first one
+    and only one of them can grab it at a time
 
+    Returns: fork1 - smaller number
+             fork2 - bigger number
+    '''
+    fork1 = id
+    fork2 = (id + 1) % PHILOSOPHERS_COUNT
+
+    # Always set fork1 to the smaller fork
+    if fork1 < fork2:
+        return fork1, fork2
+    
+    return fork2, fork1
+        
 if __name__ == "__main__":
     # Create and start philosopher threads
     philosophers = [threading.Thread(
