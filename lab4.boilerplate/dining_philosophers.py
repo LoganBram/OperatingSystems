@@ -8,7 +8,8 @@ thinking_time = 1
 eating_time = 5
 # Initialize locks for each fork
 # TODO: create a list of forks using a semaphore for each fork
-forks = [threading.Semaphore(1), threading.Semaphore(1), threading.Semaphore(1), threading.Semaphore(1), threading.Semaphore(1)]
+forks = [threading.Semaphore(1) for _ in range(PHILOSOPHERS_COUNT)]
+
 
 mutex = threading.Semaphore(1)
 
