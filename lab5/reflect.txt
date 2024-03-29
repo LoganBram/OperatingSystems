@@ -1,0 +1,15 @@
+Program 1 Page fault occurred. Page Chrome - 1st tab loaded into frame 0.
+Program 1 Page fault occurred. Page Chrome - 2nd tab loaded into frame 1.
+Program 1 Page fault occurred. Page Chrome - 3rd tab loaded into frame 2.
+Program 1 Page fault occurred. Page Chrome - 4th tab loaded into frame 3.
+Program 1 Total Page Faults: 4
+Page fault occurred. Page COD - 1st tab loaded into frame 0.
+Page fault occurred. Page COD - 2nd tab loaded into frame 1.
+Page fault occurred. Page COD - 3rd tab loaded into frame 2.
+Page fault occurred. Page COD - 4th tab loaded into frame 3.
+Program 2 Total Page Faults: 4
+Total Page Faults for all programs: 8
+
+It was found that there were enough frames to hold each page on its own and therefore we only inccured 8 page faults in total due to there being
+a page fault every time that a page was loaderd into the frame. The working set was big enough so that each page only neededed to be loaded 
+once and then it was already in the frame when it was needed again. 
